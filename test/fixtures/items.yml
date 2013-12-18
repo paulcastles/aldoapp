@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  barcode: MyString
+  quantiy_on_hand: 
+  type: 
+  colour: MyString
+  photo: MyString
+
+two:
+  name: MyString
+  barcode: MyString
+  quantiy_on_hand: 
+  type: 
+  colour: MyString
+  photo: MyString

@@ -1,0 +1,35 @@
+<%= form_for(@sale) do |f| %>
+  <% if @sale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+      <% @sale.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_id %><br />
+    <%= f.collection_select :customer_id, Customer.all, :id, :name %>
+  </div>
+  <p><b>One item per transaction</b></p>
+  <div class="field">
+    <%= f.label :item_id %><br />
+    <%= f.collection_select :item_id, Item.all, :id, :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :employee_id %><br />
+    <%= f.collection_select :employee_id, Employee.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Process Transaction" %>
+  </div>
+<% end %>

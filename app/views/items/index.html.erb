@@ -1,0 +1,33 @@
+<h1>Inventory</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Barcode</th>
+    <th>Quantity on hand</th>
+    <th>Description</th>
+    <th>Colour</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.barcode %></td>
+    <td><%= item.quantity_on_hand %></td>
+    <td><%= item.description %></td>
+    <td><%= item.colour %></td>
+    <td><%= image_tag(item.photo, :size => '50x50') %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add New Item', new_item_path %>

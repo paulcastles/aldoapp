@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @employee.age %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= image_tag (@employee.photo) %>
+</p>
+
+<h2>Please leave a comment: </h2>
+	<%= form_for([@customer, Post.new]) do |f| %>
+		<%= f.text_area :content, :rows => 3 %>
+			<div class="actions">
+			<%= f.submit "Post a Comment" %>
+		</div>
+	<% end %>
+	
+	<% if @employee.posts.empty? %>
+		<h3>You are the first to comment</h3>
+	<% else %>
+		<h2>What others felt about this:</h2>
+			<% @employee.posts.reverse.each do |post| %>
+				<p><%= post.content %>
+				Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.customer.name %></p>
+			<% end %>
+	<% end %>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

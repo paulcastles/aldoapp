@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Barcode:</b>
+  <%= @item.barcode %>
+</p>
+
+<p>
+  <b>Quantity on hand:</b>
+  <%= @item.quantity_on_hand %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @item.description %>
+</p>
+
+<p>
+  <b>Colour:</b>
+  <%= @item.colour %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= image_tag (@item.photo) %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
